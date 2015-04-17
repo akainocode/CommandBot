@@ -1,18 +1,6 @@
 // Initialization of the node module.
 var random = Math.random;
 var round = Math.round;
-// function contains(a, obj) {
-//     var i = a.length;
-//     while (i--) {
-//        if (a[i] === obj) {
-//            return true;
-//        }
-//     }
-//     return false;
-// }
-// const function isNums(str){
-//     return int(str.replace(/[0-9]/g, "").length) == 0;
-// }
 var countingGame = {
     init: function (client, imports) {
         var counter = 0;
@@ -23,7 +11,6 @@ var countingGame = {
             "Havvy",
             "Nyanta",
             "TsundereVanilla"
-            //More can be added later
         ];
         var win = 0;
         var lose = 0;
@@ -65,7 +52,7 @@ var countingGame = {
                     }
                  },
                 '!winLoss': function (command){
-                    client.say(command.channel, "Since the bot has started, the server has won " + win + " times and lost " + lose + "times.");
+                    client.say(command.channel, "Since the bot has started, the server has won " + win + " times and lost " + lose + " times.");
                 },
                 '!setEnd': function(command) {
                     if(contains(adminUsers, command.nickname)){
