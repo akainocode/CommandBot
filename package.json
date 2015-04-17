@@ -4,7 +4,6 @@
   "description": "This is a bot for Commands and stuff",
   "main": "index.js",
   "scripts": {
-    "test": "%test",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tennu config.json -v"
   },
@@ -21,5 +20,4 @@
   "dependencies": {
     "tennu": "^2.3.0"
   }
-
 }
