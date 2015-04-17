@@ -8,7 +8,7 @@
     "channels": ["#heartless"],
     "nickserv": "nickserv",
     "auth-password": null,
-    "plugins": ["blt", "luck"],
+    "plugins": ["blt", "luck", "countingGame"],
     "command-trigger": "%",
     "disable-help": false
 }
