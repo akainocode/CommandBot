@@ -42,34 +42,39 @@ var countingGame = {
                 '!count': function (command) {
                     var roll = 0;
                     if(stop - counter < limit){
-                        roll = round(random() * round(stop - counter)) + 1
+                        roll = round(random() * round(stop - counter));
                     }
                     else{
-                        roll = round(random() * 10) + 1
+                        roll = round(random() * 10) + 1;
                     }
                     counter = counter + roll;
                     client.say(command.channel, roll + " was rolled by " + command.nickname +", and the counter is at " + counter);
-                    if(counter = stop - 1){
+                    if(counter === stop - 1){
                         client.say(command.channel, "HA. ALL OF YOU GUYS LOSE. THANK " + command.nickname + " FOR IT.");
                     }
-                    else if(counter <= stop){
+                    else if(counter >= stop){
                         client.say(command.channel, "Congratulations, " + command.nickname + " has completed the counter up to " + counter + "!");
                         counter = 0;
                     }
                  },
                 '!setEnd': function(command) {
-                   
                     if(contains(adminUsers, command.nickname)){
                         var params = command.args;
-                        if(params.length < 1)
+                        if(params.length === 0){
                             client.say(command.channel, "Invalid parameter: Not enough parameters");
+                        }
                         else{
-                            if(isNums(params[0])){
-                                stop = int(params[0]);
+                            params[0] = params[0].replace("[.]","");
+                            client.say(command.channel, "DEBUG - PARAMS != 0 - PARAMS[0] IS " + params[0] + " " + isNaN(Number(params[0])));
+                            var bool = isNaN(Number(params[0]));
+                            if(!bool){
+                                stop = Number(params[0]);
                                 client.say(command.channel, "Limit for the counting game is is successfully set to " + params[0]);
+                                client.say(command.channel, "DEBUG - PARAMS[0] !isNaN");
                             }
                             else{
                                 client.say(command.channel, "Invalid parameter: Parameter is not a number.")
+                                client.say(command.channel, "DEBUG - PARAMS[0] isNaN");
                             }
 
                         }
