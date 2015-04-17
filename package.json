@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/codeninjathe/CommandBot/issues"
   },
-  "homepage": "https://github.com/codeninjathe/CommandBot"
+  "homepage": "https://github.com/codeninjathe/CommandBot",
+  "dependencies": {
+    "tennu": "^2.3.0"
+  }
 }
