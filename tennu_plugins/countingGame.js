@@ -51,7 +51,7 @@ var countingGame = {
                     else{
                         client.say(command.channel, "Insufficient Permissions");
                     } 
-                }
+                },
                 '!count': function (command) {
                     var roll = 0;
                     if(stop - counter < limit){
