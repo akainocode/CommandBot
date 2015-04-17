@@ -25,6 +25,8 @@ var countingGame = {
             "TsundereVanilla"
             //More can be added later
         ];
+        var win = 0;
+        var lose = 0;
         function contains(a, obj) {
            var i = a.length;
              while (i--) {
@@ -51,12 +53,20 @@ var countingGame = {
                     client.say(command.channel, roll + " was rolled by " + command.nickname +", and the counter is at " + counter);
                     if(counter === stop - 1){
                         client.say(command.channel, "HA. ALL OF YOU GUYS LOSE. THANK " + command.nickname + " FOR IT.");
+                        counter = 0;
+                        lose++;
+                        client.say(command.channel, "Since the bot has started, the server has lost " + lose + " times.");
                     }
                     else if(counter >= stop){
                         client.say(command.channel, "Congratulations, " + command.nickname + " has completed the counter up to " + counter + "!");
                         counter = 0;
+                        win++;
+                        client.say(command.channel, "Since the bot has started, the server has won " + win + " times.");
                     }
                  },
+                '!winLoss': function (command){
+                    client.say(command.channel, "Since the bot has started, the server has won " + win + " times and lost " + lose + "times.");
+                },
                 '!setEnd': function(command) {
                     if(contains(adminUsers, command.nickname)){
                         var params = command.args;
@@ -65,16 +75,13 @@ var countingGame = {
                         }
                         else{
                             params[0] = params[0].replace("[.]","");
-                            client.say(command.channel, "DEBUG - PARAMS != 0 - PARAMS[0] IS " + params[0] + " " + isNaN(Number(params[0])));
                             var bool = isNaN(Number(params[0]));
                             if(!bool){
                                 stop = Number(params[0]);
                                 client.say(command.channel, "Limit for the counting game is is successfully set to " + params[0]);
-                                client.say(command.channel, "DEBUG - PARAMS[0] !isNaN");
                             }
                             else{
                                 client.say(command.channel, "Invalid parameter: Parameter is not a number.")
-                                client.say(command.channel, "DEBUG - PARAMS[0] isNaN");
                             }
 
                         }
@@ -92,12 +99,15 @@ var countingGame = {
                     'A small counting game in which you try to hit the limit.',
                     '!setEnd',
                     ' ',
-                    'A command intended to set the end of the counting game, only certain people can do this command.'
+                    'A command intended to set the end of the counting game, only certain people can do this command.',
+                    '!winLoss',
+                    ' ',
+                    'This gets the wins and losses of the counter since the bot has started'
                 ]
 
             },
 
-            commands: ['count', 'setEnd']
+            commands: ['count', 'setEnd', 'winLoss']
         };
     }
 };
