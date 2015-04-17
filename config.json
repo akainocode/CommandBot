@@ -5,7 +5,7 @@
     "nickname": "CommandBot",
     "username": "cmdbot",
     "realname": "CommandBot in tennu",
-    "channels": ["heartless"],
+    "channels": ["#heartless"],
     "nickserv": "nickserv",
     "auth-password": null,
     "plugins": ["blt"],
