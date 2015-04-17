@@ -12,6 +12,7 @@ var countingGame = {
             "Nyanta",
             "TsundereVanilla"
         ];
+        var dice = 10;
         var win = 0;
         var lose = 0;
         function contains(a, obj) {
@@ -28,13 +29,36 @@ var countingGame = {
         }
         return {
             handlers: {
+                '!setRoll': function(command){
+                    if(contains(adminUsers, command.nickname)){
+                        var params = command.args;
+                        if(params.length === 0){
+                            client.say(command.channel, "Invalid parameter: Not enough parameters");
+                        }
+                        else{
+                            params[0] = params[0].replace("[.]","");
+                            var bool = isNaN(Number(params[0]));
+                            if(!bool){
+                                dice = Number(params[0]);
+                                client.say(command.channel, "roll for the counting game is is successfully set to " + params[0]);
+                            }
+                            else{
+                                client.say(command.channel, "Invalid parameter: Parameter is not a number.")
+                            }
+
+                        }
+                    }
+                    else{
+                        client.say(command.channel, "Insufficient Permissions");
+                    } 
+                }
                 '!count': function (command) {
                     var roll = 0;
                     if(stop - counter < limit){
                         roll = round(random() * round(stop - counter));
                     }
                     else{
-                        roll = round(random() * 10) + 1;
+                        roll = round(random() * dice) + 1;
                     }
                     counter = counter + roll;
                     client.say(command.channel, roll + " was rolled by " + command.nickname +", and the counter is at " + counter);
