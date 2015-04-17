@@ -4,7 +4,8 @@
   "description": "This is a bot for Commands and stuff",
   "main": "index.js",
   "scripts": {
-    "test": "%test"
+    "test": "%test",
+    "start": "tennu config.json -v"
   },
   "repository": {
     "type": "git",
@@ -19,4 +20,5 @@
   "dependencies": {
     "tennu": "^2.3.0"
   }
+
 }
