@@ -4,7 +4,11 @@
   "description": "This is a bot for Commands and stuff",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "%test",
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+>>>>>>> origin/master
     "start": "tennu config.json -v"
   },
   "repository": {
