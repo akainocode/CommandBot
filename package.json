@@ -1,0 +1,19 @@
+{
+  "name": "CommandBot",
+  "version": "1.0.0",
+  "description": "This is a bot for Commands and stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "%test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeninjathe/CommandBot.git"
+  },
+  "author": "Akai Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeninjathe/CommandBot/issues"
+  },
+  "homepage": "https://github.com/codeninjathe/CommandBot"
+}
