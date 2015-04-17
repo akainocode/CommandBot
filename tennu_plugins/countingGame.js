@@ -51,7 +51,7 @@ var countingGame = {
                     else{
                         client.say(command.channel, "Insufficient Permissions");
                     } 
-                },
+                },  
                 '!count': function (command) {
                     var roll = 0;
                     if(stop - counter < limit){
@@ -111,6 +111,9 @@ var countingGame = {
                     '!setEnd',
                     ' ',
                     'A command intended to set the end of the counting game, only certain people can do this command.',
+                    '!setRoll',
+                    ' ',
+                    'A command intended to set the roll of the counting game, only certain people can do this command.',
                     '!winLoss',
                     ' ',
                     'This gets the wins and losses of the counter since the bot has started'
@@ -118,7 +121,7 @@ var countingGame = {
 
             },
 
-            commands: ['count', 'setEnd', 'winLoss']
+            commands: ['count', 'setEnd', 'winLoss', 'setRoll']
         };
     }
 };
