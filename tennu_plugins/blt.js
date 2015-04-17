@@ -2,7 +2,7 @@ var BLTPlugin = {
     init: function (client, imports) {
         return {
             handlers: {
-                '%givemeblt': function (command) {
+                '!givemeblt': function (command) {
                     client.act(command.channel, 'gives a juicy BLT to ' + command.nickname);
                 }
             },
