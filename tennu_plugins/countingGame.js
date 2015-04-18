@@ -125,19 +125,19 @@ var countingGame = {
                     } 
                 },
                 '!countSettings': function(command){
-                    client.say("Roll Limit : " +  dice);
-                    client.say("End Point : " + limit );
-                    client.say("W:" + win + " L:" + lose);
-                    client.say("Counter: " + counter);
+                    client.say(command.channel, "Roll Limit : " +  dice);
+                    client.say(command.channel, "End Point : " + limit );
+                    client.say(command.channel, "W:" + win + " L:" + lose);
+                    client.say(command.channel, "Counter: " + counter);
                 },
                 '!rollLimit': function(command){
-                    client.say("Roll Limit : " +  dice);
+                    client.say(command.channel, "Roll Limit : " +  dice);
                 },
                 '!endPoint': function(command){
-                    client.say("End Point : " + limit );
+                    client.say(command.channel, "End Point : " + limit );
                 },
                 '!currentCount': function(command){
-                    client.say("Counter: " + counter);
+                    client.say(command.channel, "Counter: " + counter);
                 }
              },
 
