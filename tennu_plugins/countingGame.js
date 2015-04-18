@@ -55,7 +55,7 @@ var countingGame = {
                 '!count': function (command) {
                     var roll = 0;
                     if(stop - counter < limit){
-                        roll = round(random() * round(stop - counter));
+                        roll = round(random() * round(stop - counter)) + 1;
                     }
                     else{
                         roll = round(random() * dice) + 1;
@@ -100,6 +100,44 @@ var countingGame = {
                     else{
                         client.say(command.channel, "Insufficient Permissions");
                     } 
+                },
+                '!setLimit': function(command){
+                    if(contains(adminUsers, command.nickname)){
+                        var params = command.args;
+                        if(params.length === 0){
+                            client.say(command.channel, "Invalid parameter: Not enough parameters");
+                        }
+                        else{
+                            params[0] = params[0].replace("[.]","");
+                            var bool = isNaN(Number(params[0]));
+                            if(!bool){
+                                stop = Number(params[0]);
+                                client.say(command.channel, "Limit for the counting game is is successfully set to " + params[0]);
+                            }
+                            else{
+                                client.say(command.channel, "Invalid parameter: Parameter is not a number.")
+                            }
+
+                        }
+                    }
+                    else{
+                        client.say(command.channel, "Insufficient Permissions");
+                    } 
+                },
+                '!countSettings': function(command){
+                    client.say("Roll Limit : " +  dice);
+                    client.say("End Point : " + limit );
+                    client.say("W:" + win + " L:" + lose);
+                    client.say("Counter: " + counter);
+                },
+                '!rollLimit': function(command){
+                    client.say("Roll Limit : " +  dice);
+                },
+                '!endPoint': function(command){
+                    client.say("End Point : " + limit );
+                },
+                '!currentCount': function(command){
+                    client.say("Counter: " + counter);
                 }
              },
 
@@ -108,7 +146,7 @@ var countingGame = {
                     '!count',
                     ' ',
                     'A small counting game in which you try to hit the limit.',
-                    '!setEnd',
+                    '!setEnd or !setLimit',
                     ' ',
                     'A command intended to set the end of the counting game, only certain people can do this command.',
                     '!setRoll',
@@ -116,12 +154,17 @@ var countingGame = {
                     'A command intended to set the roll of the counting game, only certain people can do this command.',
                     '!winLoss',
                     ' ',
-                    'This gets the wins and losses of the counter since the bot has started'
+                    'This gets the wins and losses of the counter since the bot has started',
+                    '!countSettings',
+                    ' ',
+                    'This views the current roll limit, end point, wins and losses, and  current counter',
+                    '!rollLimit or !endPoint or !CurrentCount',
+                    ' ',
+                    'This displays the respective game stat.'
                 ]
-
             },
 
-            commands: ['count', 'setEnd', 'winLoss', 'setRoll']
+            commands: ['count', 'setEnd', 'winLoss', 'setRoll', 'countSettings', 'setLimit', 'rollLimit', 'currentCount', 'endPoint']
         };
     }
 };
