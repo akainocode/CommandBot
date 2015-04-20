@@ -1,8 +1,5 @@
-// Initialization of the node module.
-
 var Utilities = {
     init: function (client, imports) {
-        // Initialization of the plugin.
         var owner = "akainocode"
         return {
             handlers: {
@@ -21,7 +18,6 @@ var Utilities = {
                         client.say(command.channel, "Error: Not bot owner");
                 }
             },
-
             help: {
                 'join': [
                     '!join &lt;command&gt;',
