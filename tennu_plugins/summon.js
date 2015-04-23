@@ -35,7 +35,6 @@ var units = [
 	"Drake Queen Aisha (5)", 
 	"Red Axe Michele (4)",
 	"Lotus Axe Michele (5)",
-	"Lodin's Queen Michele (7)", 
 	"War Demon Vishra (4)", 
 	"Rakshasa Vishra (5)", 
 	"Homusubi (4)",
@@ -46,7 +45,6 @@ var units = [
 	"Fire Dance Ramna (5)",
  	"Dark Arts Dia (4)",
 	"Dark Princess Dia (5)", 
-	"Double D Dia (7)",
 	"Luther (4)",
 	"Defiant Luther (5)",
 	"Bodyguard Darvanshel (4)", 
@@ -96,10 +94,8 @@ var units = [
 	"Snow Lion Signas (5)", 
 	"Spear Fist Raydn (4)", 
 	"Spear Arms Raydn (5)", 
-	"Painful Fister Raydn (7)",
 	"Azure Blade Lucina (4)",
 	"Azure Warrior Lucina (5)",
-	"Les-For-Selena Lucina (7)",
 	"Phee (4)",
 	"Tyrant Phee (5)", 
 	"Dark Axe Mariudeth (4)", 
@@ -131,7 +127,6 @@ var units = [
 	"Pixy Leore (3)",
 	"Pixy Royal Leore (4)", 
 	"Pixy King Leore (5)", 
-	"Love Child Leore (7)",
 	"Edea (3)",
 	"Earth Knight Edea (4)", 
 	"Mother Earth Edea (5)", 
@@ -156,7 +151,6 @@ var units = [
 	"Noble Thief Zelnite (5)",
 	"Flora Princess Faris (4)",
 	"Flora Queen Faris (5)",
-	"Nature Waifu Faris (7)",
 	"Forest Guardian Tia (4)", 
 	"Divine Guardian Tia (5)",
 	"Spirit Ruler Lucca (4)",
@@ -186,14 +180,12 @@ var units = [
 	"Bolt Goddess Amy (5)", 
 	"Drakeborn Lodin (4)", 
 	"Drake God Lodin (5)", 
-	"Michele's Bitch Lodin (7)",
 	"Shock Mage Rashil (4)", 
 	"Bolt Magus Rashil (5)", 
 	"Sky Angel Kushra (4)", 
 	"Rebel Angel Elsel (5)", 
 	"Gold Warrior Rina (4)", 
 	"Gold Knight Rina (5)", 
-	"Superhero Wannabe Rina (7)",
 	"Mech Arms Grybe (4)", 
 	"Mech Cannon Grybe (5)", 
 	"Sage Bran (4)",
@@ -230,7 +222,6 @@ var units = [
 	"Eight Blade Sefia (3)", 
 	"Blade Storm Sefia (4)", 
 	"Blade Queen Sefia (5)",
-	"Bridesmaid Sefia (7)", 
 	"Legionary Melchio (4)", 
 	"Centurion Melchio (5)",
 	"Cyborg Lilith (4)",
@@ -245,12 +236,10 @@ var units = [
 	"Unflinching Themis (5)", 
 	"Zellha (4)",
 	"Ruin Zellha (5)", 
-	"Underboob Goddess Zellha (7)",
 	"Dark Angel Azael (4)",
 	"Wisdom Angel Azael (5)", 
 	"Brave Legend Hogar (4)", 
 	"Brave King Hogar (5)", 
-	"Manly Man Hogar (7)",
 	"Mad Knight Narza (4)", 
 	"Mad King Narza (5)",
 	"Holy Treasures Yujeh (4)",
@@ -271,7 +260,6 @@ var units = [
 	"Alice (3)",
 	"Scythe Alice (4)", 
 	"Scythe God Alice (5)",
-	"Wears-Only-Panties Alice (7)", 
 	"Lemia (3)",
 	"Necromancer Lemia (4)", 
 	"Soul Keeper Lemia (5)", 
@@ -290,12 +278,10 @@ var units = [
 	"Dark Warrior Zephyr (5)", 
 	"Magic Riffs Eric (4)",
 	"Dark Tunes Eric (5)", 
-	"Embodiment of Ziz Eric (7)",
 	"Kajah (4)",
 	"Evil Kajah (5)", 
 	"Dictator Lilly Matah (4)", 
-	"Empress Lilly Matah (5)",
-	"BSDM Goddess Lilly Matah (7)", 
+	"Empress Lilly Matah (5)", 
 	"Inferno Elza (4)",
 	"Inferno Queen Elza (5)", 
 	"Assassin Kuda (4)",
@@ -361,11 +347,14 @@ var SummonPlugin = {
 	const requiresAdmin = imports.admin.requiresAdmin;
         return {
             handlers: {
-                '!summon': requiresAdmin(function (command){
+                '!summon': function (command){
                 	if(!isDisabled)
                 		client.act(command.channel, "opens the gate for " + command.nickname + " and pulls a " + randomType() + " " + randomSummon() );
-                }), 
+                	else
+                		client.say(command.channel, "Summoning has been disabled");
+                }, 
                 '!disable': requiresAdmin(function (command){
+                	client.say(command.channel, "Summoning has been disabled");
                 	isDisabled = !isDisabled;
                 }), 
             },
