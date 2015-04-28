@@ -1,10 +1,6 @@
-//WILL FINISH TODAY
 var RedditLinker = {
     init: function (client, imports) {
-        // Initialization of the plugin.
-
         return {
-
             handlers: {
                 '!rlink': function (command) {
                     var link = command.args;
@@ -13,7 +9,11 @@ var RedditLinker = {
                     else{
                         var toLink = link[0];
                         if(toLink.substring(0, 2) == "r/")
-                            client.say(command.channel, command.nickname + " requested a link to the subreddit www.reddit.com/" + toLink);
+                            client.say(command.channel, command.nickname + " requested a link to the subreddit http://www.reddit.com/" + toLink);
+                        else if(toLink.substring(0, 2) == "u/")
+                            client.say(command.channel, command.nickname + " requested a link to the user http://www.reddit.com/" + toLink);
+                        else
+                            client.say(command.channel, "Error: Invalid user or subreddit");
                     }
                 }
             },
@@ -22,7 +22,7 @@ var RedditLinker = {
                 'command': [
                     '!rlink',
                     ' ',
-                    'This link is going .'
+                    'Links a thing to reddit url.'
                 ]
             },
 

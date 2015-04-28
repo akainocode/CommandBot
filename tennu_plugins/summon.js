@@ -354,8 +354,11 @@ var SummonPlugin = {
                 		client.say(command.channel, "Summoning has been disabled");
                 }, 
                 '!disable': requiresAdmin(function (command){
-                	client.say(command.channel, "Summoning has been disabled");
                 	isDisabled = !isDisabled;
+                	if(isDisabled)
+                		client.say(command.channel, "Summoning has been disabled");
+                	else
+                		client.say(command.channel, "Summoning has been enabled");
                 }), 
             },
             help: {
