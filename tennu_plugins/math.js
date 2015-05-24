@@ -3,7 +3,9 @@
 var MathPlugin = {
     init: function (client, imports) {
         // Initialization of the plugin.
-
+        function gcf(a, b){
+            return a==0?b:gcf(b%a, a);
+        }
         return {
             exports: {
                 // Exported properties.
@@ -21,6 +23,21 @@ var MathPlugin = {
                         var multiplication = {};
                         var division = {};
 
+                    }
+                },
+                '!gcf' : function(command){
+                    if(command.args.length <= 1)
+                        client.say(command.channel, "Error: Needs integer arguments");
+                    var temp =command.args;
+                    for(int w = 0; w < temp.length - 1; w++){
+                        if(temp.length == 1)
+                            break;
+                        else{
+                            temp[w] = gcf(temp[w], temp[w + 1]);
+                            temp[w + 1] = 0;         w
+                            
+                        }
+                        for(int x = temp.length - )
                     }
                 }
             },

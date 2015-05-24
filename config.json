@@ -1,6 +1,6 @@
 {
     "server": "irc.mibbit.net",
-    "password": null,
+    "password": "pikachu",
     "port": 6667,
     "nickname": "CommandBot",
     "username": "cmdbot",
@@ -8,7 +8,7 @@
     "channels": ["#heartless"],
     "nickserv": "nickserv",
     "auth-password": null,
-    "plugins": ["blt", "luck", "countingGame", "control", "admin"],
+    "plugins": ["blt", "luck", "countingGame", "control", "admin", "summon", "rlink", "test"],
     "command-trigger": "%",
     "disable-help": false,
     "admins": [{"identifiedas": "akainocode"}, {"identifiedas": "akai"}, {"identifiedas": "Akai"}]
